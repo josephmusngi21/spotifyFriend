@@ -1,14 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { handleAuth, redirectToAuthCodeFlow, getAccessToken } from './assets/script';
+import React, { useState } from 'react';
 
 
 export default function App() {
+  // TODO: import userData and grab info about songs
+  const [user, setUser] = useState('');
+  // dictionary of the songs including how many times its played 
+  const songs = {};
+
+  // TODO: import function that will check if the same song has been played and if it has it will add a count to the dictionary
 
 
-  handleAuth();
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{user}</Text>
+      <FlatList data={userData}></FlatList>
     </View>
   );
 }
